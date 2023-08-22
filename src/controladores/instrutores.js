@@ -1,4 +1,4 @@
-let { instrutores, idAtual } = require("../bancodedados/instrutores");
+let { instrutores, idAtualInstrutor } = require("../bancodedados/instrutores");
 
 const hello = (req, res) => {
     res.status(200).send("Hello");
@@ -34,7 +34,7 @@ const adicionarUmInstrutor = (req, res) => {
     }
 
     const instrutor = {
-        id: idAtual++,
+        id: idAtualInstrutor++,
         nome,
         email,
         status: status ?? true,
