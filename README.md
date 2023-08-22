@@ -7,4 +7,5 @@
   <li>Cadastrar um novo instrutor.</li>
   <li>Atualizar todos os dados de um instrutor existente.</li>
   <li>Atualizar apenas um dado específico de um instrutor existente.</li>
+  <li>Excluir um instrutor específico.
 </ul> 
