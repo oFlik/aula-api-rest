@@ -1,5 +1,4 @@
-const { instrutores } = require("../bancodedados/instrutores");
-let { idAtual } = require("../bancodedados/instrutores");
+let { instrutores, idAtual } = require("../bancodedados/instrutores");
 
 const hello = (req, res) => {
     res.status(200).send("Hello");
@@ -88,7 +87,23 @@ const atulizarStatusInstrutor = (req, res) => {
     instrutor.status = status;
 
     return res.status(204).send();
-}
+};
+
+const excluirInstrutor = (req, res) => {
+    const { id } = req.params;
+
+    const instrutor = instrutores.findIndex((instrutor) => {
+        return instrutor.id === Number(id);
+    });
+
+    if (!instrutor) {
+        return res.status(404).send("Instrutor não encontrado!");
+    }
+
+    instrutores.splice(instrutor, 1);
+
+    return res.status(204).send();
+};
 
 module.exports = {
     hello,
@@ -96,5 +111,6 @@ module.exports = {
     escolherUmInstrutor,
     adicionarUmInstrutor,
     atulizarInstrutor,
-    atulizarStatusInstrutor
+    atulizarStatusInstrutor,
+    excluirInstrutor,
 };
